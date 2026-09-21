@@ -1,13 +1,9 @@
 {
-  "pluginsConfig": {
-    "@nx/js": {
-      "analyzeSourceFiles": true
-    }
-  },
+  "pluginsConfig": { "@nx/js": { "analyzeSourceFiles": true } },
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultBase": "master",
-  "nxCloudId": "68c84a675b1cd94f1027dba6",
+  "nxCloudId": "6ab188cf122f325419a27597",
   "namedInputs": {
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"],
     "default": ["sharedGlobals"]
@@ -30,15 +26,8 @@
     "@nx/jest:jest": {
       "cache": true,
       "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"],
-      "options": {
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
-      }
+      "options": { "passWithNoTests": true },
+      "configurations": { "ci": { "ci": true, "codeCoverage": true } }
     },
     "@nx/js:tsc": {
       "cache": true,
@@ -58,15 +47,10 @@
       "style": "css",
       "unitTestRunner": "jest"
     },
-    "@nx/angular:library": {
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nx/angular:component": {
-      "style": "css"
-    }
+    "@nx/angular:library": { "linter": "eslint", "unitTestRunner": "jest" },
+    "@nx/angular:component": { "style": "css" }
   },
-    "projects": {
+  "projects": {
     "app1": { "tags": ["scope:app"] },
     "app2": { "tags": ["scope:app"] },
     "ui-shared": { "tags": ["scope:ui"] },
@@ -74,18 +58,12 @@
     "server": { "tags": ["scope:api"] }
   },
   "dependencyConstraints": [
-    {
-      "sourceTag": "scope:utils",
-      "onlyDependOnLibsWithTags": ["scope:utils"]
-    },
+    { "sourceTag": "scope:utils", "onlyDependOnLibsWithTags": ["scope:utils"] },
     {
       "sourceTag": "scope:ui",
       "onlyDependOnLibsWithTags": ["scope:utils", "scope:ui"]
     },
-    {
-      "sourceTag": "scope:api",
-      "onlyDependOnLibsWithTags": ["scope:utils"]
-    },
+    { "sourceTag": "scope:api", "onlyDependOnLibsWithTags": ["scope:utils"] },
     {
       "sourceTag": "scope:app",
       "onlyDependOnLibsWithTags": ["scope:utils", "scope:ui", "scope:api"]
@@ -94,9 +72,7 @@
   "plugins": [
     {
       "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "eslint:lint"
-      }
+      "options": { "targetName": "eslint:lint" }
     }
   ]
 }
